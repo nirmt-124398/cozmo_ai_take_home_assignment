@@ -1,29 +1,27 @@
 {
   "schema_version": "1.0",
   "currency": "GBP",
-  "price_fixture": {
-    "version": "v1",
-    "source": "test fixture, not real market data",
-    "currency": "GBP"
-  },
   "items": [
     {
       "id": "item_001",
       "raw_text": "55 inch tv",
       "normalized_item": "television",
       "attributes": {
-        "size_inch": 43
+        "size_inch": 43.0
       },
       "qty": 2,
       "status": "confirmed",
       "status_reason": null,
-      "price": "450.00",
+      "price": 450.0,
       "price_source": "fixture v1 (test fixture, not real market data)",
       "source": "corrected by user",
       "history": [
         {
           "event": "created",
-          "from": "user input",
+          "field": null,
+          "old": null,
+          "new": null,
+          "source": "user input",
           "note": "status=confirmed"
         },
         {
@@ -31,33 +29,37 @@
           "field": "qty",
           "old": 1,
           "new": 2,
-          "from": "user said",
+          "source": "user said",
           "note": "merged raw input \"television\" (qty 1)"
         },
         {
           "event": "corrected",
           "field": "size_inch",
           "old": 55,
-          "new": 43,
-          "from": "user correction"
+          "new": 43.0,
+          "source": "user correction",
+          "note": null
         }
       ]
     },
     {
       "id": "item_002",
-      "raw_text": "2 laptops",
+      "raw_text": "laptop",
       "normalized_item": "laptop",
       "attributes": {},
-      "qty": 2,
+      "qty": 1,
       "status": "confirmed",
       "status_reason": null,
-      "price": "600.00",
+      "price": 600.0,
       "price_source": "fixture v1 (test fixture, not real market data)",
       "source": "user said",
       "history": [
         {
           "event": "created",
-          "from": "user input",
+          "field": null,
+          "old": null,
+          "new": null,
+          "source": "user input",
           "note": "status=confirmed"
         }
       ]
@@ -76,13 +78,38 @@
       "history": [
         {
           "event": "created",
-          "from": "user input",
+          "field": null,
+          "old": null,
+          "new": null,
+          "source": "user input",
           "note": "status=needs_clarification; 'charger' is ambiguous (which device?)"
         }
       ]
     },
     {
       "id": "item_004",
+      "raw_text": "cable",
+      "normalized_item": "cable",
+      "attributes": {},
+      "qty": 1,
+      "status": "needs_clarification",
+      "status_reason": "'cable' is ambiguous (which cable?)",
+      "price": null,
+      "price_source": null,
+      "source": "user said",
+      "history": [
+        {
+          "event": "created",
+          "field": null,
+          "old": null,
+          "new": null,
+          "source": "user input",
+          "note": "status=needs_clarification; 'cable' is ambiguous (which cable?)"
+        }
+      ]
+    },
+    {
+      "id": "item_005",
       "raw_text": "antique clock",
       "normalized_item": "antique clock",
       "attributes": {},
@@ -95,7 +122,98 @@
       "history": [
         {
           "event": "created",
-          "from": "user input",
+          "field": null,
+          "old": null,
+          "new": null,
+          "source": "user input",
+          "note": "status=confirmed"
+        }
+      ]
+    },
+    {
+      "id": "item_006",
+      "raw_text": "guitar",
+      "normalized_item": "guitar",
+      "attributes": {},
+      "qty": 1,
+      "status": "confirmed",
+      "status_reason": null,
+      "price": null,
+      "price_source": null,
+      "source": "user said",
+      "history": [
+        {
+          "event": "created",
+          "field": null,
+          "old": null,
+          "new": null,
+          "source": "user input",
+          "note": "status=confirmed"
+        }
+      ]
+    },
+    {
+      "id": "item_007",
+      "raw_text": "kettle",
+      "normalized_item": "kettle",
+      "attributes": {},
+      "qty": 1,
+      "status": "confirmed",
+      "status_reason": null,
+      "price": 40.0,
+      "price_source": "fixture v1 (test fixture, not real market data)",
+      "source": "user said",
+      "history": [
+        {
+          "event": "created",
+          "field": null,
+          "old": null,
+          "new": null,
+          "source": "user input",
+          "note": "status=confirmed"
+        }
+      ]
+    },
+    {
+      "id": "item_008",
+      "raw_text": "smartphone",
+      "normalized_item": "smartphone",
+      "attributes": {},
+      "qty": 1,
+      "status": "confirmed",
+      "status_reason": null,
+      "price": 350.0,
+      "price_source": "fixture v1 (test fixture, not real market data)",
+      "source": "user said",
+      "history": [
+        {
+          "event": "created",
+          "field": null,
+          "old": null,
+          "new": null,
+          "source": "user input",
+          "note": "status=confirmed"
+        }
+      ]
+    },
+    {
+      "id": "item_009",
+      "raw_text": "sofa",
+      "normalized_item": "sofa",
+      "attributes": {},
+      "qty": 1,
+      "status": "confirmed",
+      "status_reason": null,
+      "price": 800.0,
+      "price_source": "fixture v1 (test fixture, not real market data)",
+      "source": "user said",
+      "history": [
+        {
+          "event": "created",
+          "field": null,
+          "old": null,
+          "new": null,
+          "source": "user input",
           "note": "status=confirmed"
         }
       ]
@@ -103,11 +221,11 @@
   ],
   "totals": {
     "currency": "GBP",
-    "total": "2100.00",
-    "priced_item_count": 2,
-    "excluded_item_count": 2,
-    "excluded_ambiguous_count": 1,
-    "excluded_unpriced_count": 1
+    "total": 2690.0,
+    "priced_item_count": 5,
+    "excluded_item_count": 4,
+    "excluded_ambiguous_count": 2,
+    "excluded_unpriced_count": 2
   },
-  "disclaimer": "test fixture, not real market data"
+  "disclaimer": "Prices come from a test fixture, not real market data (test fixture, not real market data)."
 }

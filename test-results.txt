@@ -1,26 +1,10 @@
 ============================= test session starts ==============================
-platform linux -- Python 3.13.13, pytest-9.2.0, pluggy-1.7.0 -- /home/nirmit/Documents/Github Maintained Projects/cozmo ai take home assignment/.venv/bin/python
-cachedir: .pytest_cache
+platform linux -- Python 3.13.13, pytest-9.2.0, pluggy-1.7.0
 rootdir: /home/nirmit/Documents/Github Maintained Projects/cozmo ai take home assignment
 configfile: pyproject.toml
 testpaths: tests
-collecting ... collected 16 items
+collected 14 items
 
-tests/test_ambiguous.py::test_ambiguous_items_are_flagged_not_guessed[charger-charger-which device?] PASSED [  6%]
-tests/test_ambiguous.py::test_ambiguous_items_are_flagged_not_guessed[cable-cable-which cable?] PASSED [ 12%]
-tests/test_ambiguous.py::test_ambiguous_items_are_flagged_not_guessed[remote-remote-which device's remote?] PASSED [ 18%]
-tests/test_corrections.py::test_size_correction_updates_value_and_logs_history PASSED [ 25%]
-tests/test_corrections.py::test_qty_correction_changes_total PASSED      [ 31%]
-tests/test_corrections.py::test_normalized_item_correction_reprices_from_fixture PASSED [ 37%]
-tests/test_duplicates.py::test_synonyms_merge_into_one_record PASSED     [ 43%]
-tests/test_duplicates.py::test_fuzzy_typo_merges_instead_of_duplicating PASSED [ 50%]
-tests/test_missing_prices.py::test_known_item_without_fixture_price_stays_blank[antique clock] PASSED [ 56%]
-tests/test_missing_prices.py::test_known_item_without_fixture_price_stays_blank[guitar] PASSED [ 62%]
-tests/test_missing_prices.py::test_known_item_without_fixture_price_stays_blank[monitor] PASSED [ 68%]
-tests/test_parser.py::test_quantity_prefix_and_suffix PASSED             [ 75%]
-tests/test_parser.py::test_size_attribute_and_raw_text_are_preserved PASSED [ 81%]
-tests/test_reviewed_snapshot.py::test_sample_claim_matches_reviewed_snapshot PASSED [ 87%]
-tests/test_reviewed_snapshot.py::test_sample_report_matches_reviewed_snapshot PASSED [ 93%]
-tests/test_totals.py::test_total_uses_decimal_and_unit_prices PASSED     [100%]
+tests/test_required.py ..............                                    [100%]
 
-============================== 16 passed in 0.05s ==============================
+============================== 14 passed in 0.09s ==============================

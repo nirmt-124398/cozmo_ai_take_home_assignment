@@ -1,0 +1,2 @@
+add: 55 inch tv, laptop, charger, cable, television, antique clock, guitar, kettle, smartphone, sofa
+correct item_001 size_inch 43
