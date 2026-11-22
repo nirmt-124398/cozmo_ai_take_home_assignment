@@ -1,0 +1,48 @@
+{
+  "version": "v1",
+  "source": "test fixture, not real market data",
+  "currency": "GBP",
+  "disclaimer": "test fixture, not real market data",
+  "items": {
+    "television": {
+      "label": "Television",
+      "price": "450.00"
+    },
+    "laptop": {
+      "label": "Laptop",
+      "price": "600.00"
+    },
+    "smartphone": {
+      "label": "Smartphone",
+      "price": "350.00"
+    },
+    "headphones": {
+      "label": "Headphones",
+      "price": "120.00"
+    },
+    "microwave": {
+      "label": "Microwave",
+      "price": "90.00"
+    },
+    "refrigerator": {
+      "label": "Refrigerator",
+      "price": "700.00"
+    },
+    "washing machine": {
+      "label": "Washing machine",
+      "price": "550.00"
+    },
+    "sofa": {
+      "label": "Sofa",
+      "price": "800.00"
+    },
+    "dining table": {
+      "label": "Dining table",
+      "price": "300.00"
+    },
+    "kettle": {
+      "label": "Kettle",
+      "price": "40.00"
+    }
+  }
+}
