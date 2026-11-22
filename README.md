@@ -14,18 +14,14 @@ uv run cozmo-ai-take-home
 Sample session:
 
 ```text
-> add: 55 inch tv, 2 laptops, charger, television, antique clock
-Processed input; 4 item(s) affected.
-  item_001  Television x2  confirmed  unit price: 450.00
-  item_002  Laptop x2  confirmed  unit price: 600.00
-  item_003  Charger x1  needs_clarification  unit price: blank
-  item_004  Antique Clock x1  confirmed  unit price: blank
+> add: 55 inch tv, laptop, charger, cable, television, antique clock, guitar, kettle, smartphone, sofa
+Processed input; 9 item(s) affected.
 > correct item_001 size_inch 43
 > report
 ```
 
-The full sample report is in `examples/report.txt`. `television` merges into the
-TV, so the quantity becomes 2 and the total is `2,100.00`.
+The full sample report is in `examples/report.txt`: 9 records, 2 ambiguous,
+2 unpriced, one merge, one correction, total `2,690.00`, 4 excluded.
 
 ## Commands
 
@@ -90,6 +86,7 @@ uv run pytest -v
 | Missing prices | `antique clock`, `guitar`, `monitor` |
 | Corrections | size, quantity, item-name reprice |
 | Duplicates | `tv` + `television`, `telivision` typo |
+| Negative merge | `monitor` and `television` stay separate |
 | Totals | `Decimal` calculation and exclusion counts |
 | Snapshot | reviewed expected JSON and report in `tests/expected/` |
 
@@ -97,7 +94,7 @@ The expected files are reviewed snapshots, not an independent oracle.
 
 ## Limitations
 
-1. I only split on commas, semicolons, and newlines; `tv and laptop` is one item.
+1. I only split on commas, semicolons, and newlines; `tv and laptop` is one item, and `2 in 1 laptop` is read as a 2-inch laptop.
 2. I only extract `size_inch`; colour, brand, model, and serial number are ignored.
 3. My fuzzy matching is tuned to this fixture and can miss typos or merge similar names incorrectly.
 4. My ambiguity list is shallow: `remote control` may not be flagged, and `phone charger` is confirmed but unpriced.
