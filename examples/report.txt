@@ -1,0 +1,15 @@
+CONTENTS CLAIM REPORT
+---------------------
+Currency: GBP
+
+1. Television (43") x2                       900.00  [fixture price]
+   Note: merged raw input "television" (qty 1)
+   Note: corrected from 55" to 43"
+2. Laptop x2                               1,200.00  [fixture price]
+3. Charger x1                                        NEEDS CLARIFICATION (which device?)
+4. Antique Clock x1                                  PRICE BLANK (not in fixture)
+
+Total (priced items only): 2,100.00
+Excluded from total: 2 items (1 ambiguous, 1 unpriced)
+
+Prices come from a test fixture, not real market data.

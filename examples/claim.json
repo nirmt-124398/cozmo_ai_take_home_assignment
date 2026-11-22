@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "currency": "GBP",
+  "price_fixture": {
+    "version": "v1",
+    "source": "test fixture, not real market data",
+    "currency": "GBP"
+  },
+  "items": [
+    {
+      "id": "item_001",
+      "raw_text": "55 inch tv",
+      "normalized_item": "television",
+      "attributes": {
+        "size_inch": 43
+      },
+      "qty": 2,
+      "status": "confirmed",
+      "status_reason": null,
+      "price": "450.00",
+      "price_source": "fixture v1 (test fixture, not real market data)",
+      "source": "corrected by user",
+      "history": [
+        {
+          "event": "created",
+          "from": "user input",
+          "note": "status=confirmed"
+        },
+        {
+          "event": "merged",
+          "field": "qty",
+          "old": 1,
+          "new": 2,
+          "from": "user said",
+          "note": "merged raw input \"television\" (qty 1)"
+        },
+        {
+          "event": "corrected",
+          "field": "size_inch",
+          "old": 55,
+          "new": 43,
+          "from": "user correction"
+        }
+      ]
+    },
+    {
+      "id": "item_002",
+      "raw_text": "2 laptops",
+      "normalized_item": "laptop",
+      "attributes": {},
+      "qty": 2,
+      "status": "confirmed",
+      "status_reason": null,
+      "price": "600.00",
+      "price_source": "fixture v1 (test fixture, not real market data)",
+      "source": "user said",
+      "history": [
+        {
+          "event": "created",
+          "from": "user input",
+          "note": "status=confirmed"
+        }
+      ]
+    },
+    {
+      "id": "item_003",
+      "raw_text": "charger",
+      "normalized_item": "charger",
+      "attributes": {},
+      "qty": 1,
+      "status": "needs_clarification",
+      "status_reason": "'charger' is ambiguous (which device?)",
+      "price": null,
+      "price_source": null,
+      "source": "user said",
+      "history": [
+        {
+          "event": "created",
+          "from": "user input",
+          "note": "status=needs_clarification; 'charger' is ambiguous (which device?)"
+        }
+      ]
+    },
+    {
+      "id": "item_004",
+      "raw_text": "antique clock",
+      "normalized_item": "antique clock",
+      "attributes": {},
+      "qty": 1,
+      "status": "confirmed",
+      "status_reason": null,
+      "price": null,
+      "price_source": null,
+      "source": "user said",
+      "history": [
+        {
+          "event": "created",
+          "from": "user input",
+          "note": "status=confirmed"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "currency": "GBP",
+    "total": "2100.00",
+    "priced_item_count": 2,
+    "excluded_item_count": 2,
+    "excluded_ambiguous_count": 1,
+    "excluded_unpriced_count": 1
+  },
+  "disclaimer": "test fixture, not real market data"
+}
