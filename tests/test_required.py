@@ -27,7 +27,7 @@ def sample_items() -> ClaimEngine:
     return engine
 
 
-# 3 ambiguous items
+# 3 aMbiguous items
 def test_ambiguous_charger(engine: ClaimEngine) -> None:
     [item] = engine.add("charger")
     assert item.status is ItemStatus.NEEDS_CLARIFICATION
@@ -49,7 +49,7 @@ def test_ambiguous_remote(engine: ClaimEngine) -> None:
     assert "which device" in (item.status_reason or "")
 
 
-# 3 missing prices
+# 3 missing pRices
 def test_antique_clock_unpriced(engine: ClaimEngine) -> None:
     [item] = engine.add("antique clock")
     assert item.status is ItemStatus.CONFIRMED
@@ -71,7 +71,7 @@ def test_monitor_unpriced(engine: ClaimEngine) -> None:
     assert item.price_source is None
 
 
-# 3 corrections
+#  corrections
 def test_correction_size(engine: ClaimEngine) -> None:
     [item] = engine.add("55 inch tv")
     corrected = engine.correct(item.id, "size_inch", "43")
@@ -152,4 +152,3 @@ def test_different_items_are_not_wrongly_merged(two_items: ClaimEngine) -> None:
     monitor = next(item for item in items if item.normalized_item == "monitor")
     assert monitor.price is None
     assert engine.totals()["total"] == Decimal("450.00")
-

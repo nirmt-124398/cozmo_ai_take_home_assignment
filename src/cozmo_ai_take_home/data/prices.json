@@ -1,7 +1,7 @@
 {
   "version": "v1",
   "source_label": "test fixture, not real market data",
-  "currency": "GBP",
+  "currency": "INR",
   "items": {
     "television": "450.00",
     "laptop": "600.00",

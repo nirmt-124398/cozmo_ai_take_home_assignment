@@ -1,6 +1,6 @@
 CONTENTS CLAIM REPORT
 ---------------------
-Currency: GBP
+Currency: INR
 
 1. Television (43" ) x2                   £900.00  [fixture price]
    Note: merged raw input "television" (qty 1)

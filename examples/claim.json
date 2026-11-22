@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "currency": "GBP",
+  "currency": "INR",
   "items": [
     {
       "id": "item_001",
@@ -220,7 +220,7 @@
     }
   ],
   "totals": {
-    "currency": "GBP",
+    "currency": "INR",
     "total": 2690.0,
     "priced_item_count": 5,
     "excluded_item_count": 4,

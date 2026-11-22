@@ -72,9 +72,9 @@ def main() -> None:
             print(f"{'ID':<9} {'Item':<20} {'Qty':>3}  {'Status':<15} {'Unit price':>10}")
             for item in engine.items:
                 price_str = f"£{item.price}" if item.price is not None else "blank"
+                size_str = f"({item.attributes.get('size_inch')})" if item.attributes.get("size_inch") else ""
                 print(
-                    f"{item.id:<9} {item.normalized_item:<20} "
-                    f"{item.qty:>3}  {item.status.value:<15} {price_str:>10}"
+                    f"{item.id:<9} {item.normalized_item:<20} {size_str}  {item.qty:>3}  {item.status.value:<15} {price_str:>10}"
                 )
             continue
         if cmd == "report":

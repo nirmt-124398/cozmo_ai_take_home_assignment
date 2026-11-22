@@ -1,8 +1,7 @@
 # Contents Claim Assistant
 
-A local, text-only contents claim assistant for the Cozmo AI take-home brief.
-It turns a messy list of lost items into a traceable `claim.json` and a readable
-`report.txt`. It is rule-based, offline, and uses no LLM or paid API.
+A rule-based, offline Python CLI for turning a comma-separated list of lost items into a structured `claim.json` and a human-readable `report.txt`. No LLM or paid APIs are used — all decisions are made via synonym normalization, RapidFuzz fuzzy matching, and a hardcoded INR price fixture.
+
 
 ## Quick start
 
@@ -10,6 +9,30 @@ It turns a messy list of lost items into a traceable `claim.json` and a readable
 uv sync
 uv run cozmo-ai-take-home
 ```
+
+## Demo Script
+
+| Step | Command | Result |
+|------|---------|--------|
+| 1. Add items | `add: 55 inch tv, laptop, charger, cable, television, antique clock, guitar, kettle, smartphone, sofa` | 9 items processed — television merged from `tv` + `television`, charger & cable flagged ambiguous, others confirmed |
+| 2. List records | `list` | Shows ID, item, qty, status, unit price in a table |
+| 3. Correct size | `correct item_001 size_inch 43` | Updates size from 55″ to 43″, logs history, updates total |
+| 4. List again | `list` | Shows updated size_inch on the television item |
+| 5. Generate report | `report` | Writes `out/claim.json` + `out/report.txt`, prints report to console |
+| 6. Quit | `quit` | Exits the CLI |
+
+## Key Features
+
+| Feature | What It Does |
+|---------|-------------|
+| Comma/semicolon parsing | `add: item1, item2; item3` splits correctly |
+| Synonym normalization | `tv` + `television` → unified as `television` (merged, qty adds) |
+| Ambiguity detection | `charger`, `cable`, `remote` → `needs_clarification` with reason |
+| Price fixture | 10 hardcoded INR prices; unpriced items get `price: null` |
+| Merge dedup | Exact + fuzzy (>=90 ratio) merge adds quantities, logs raw input |
+| Corrections | `correct <id> <field> <value>` updates size, qty, item name; appends history; sets source to `corrected by user` |
+| Decimal totals | Only confirmed + priced items included; excludes ambiguous + unpriced |
+| Output files | `claim.json` (structured data) + `report.txt` (human-readable) |
 
 Sample session:
 
@@ -69,7 +92,7 @@ Price corrections are rejected because prices are fixture-only.
 `src/cozmo_ai_take_home/data/prices.json` has exactly 10 labelled items:
 television 450, laptop 600, smartphone 350, headphones 120, microwave 90,
 refrigerator 700, washing machine 550, sofa 800, dining table 300, kettle 40.
-The file says `"source": "test fixture, not real market data"` and uses GBP.
+The file says `"source": "test fixture, not real market data"` and uses INR.
 Anything outside the fixture stays blank.
 
 ## Tests
@@ -90,19 +113,6 @@ uv run pytest -v
 | Totals | `Decimal` calculation and exclusion counts |
 | Snapshot | reviewed expected JSON and report in `tests/expected/` |
 
-The expected files are reviewed snapshots, not an independent oracle.
-
 ## Limitations
 
-1. I only split on commas, semicolons, and newlines; `tv and laptop` is one item, and `2 in 1 laptop` is read as a 2-inch laptop.
-2. I only extract `size_inch`; colour, brand, model, and serial number are ignored.
-3. My fuzzy matching is tuned to this fixture and can miss typos or merge similar names incorrectly.
-4. My ambiguity list is shallow: `remote control` may not be flagged, and `phone charger` is confirmed but unpriced.
-5. The fixture is 10 invented GBP prices. If duplicates disagree on size, I keep the first value rather than resolving it.
-
-## AI assistance
-
-I used an AI assistant to help write and review this implementation. I can
-explain each part of the code and the trade-offs in the walkthrough.
-
-See [`WALKTHROUGH.md`](WALKTHROUGH.md) for the design and failure walkthrough.
+See [limitations.md](limitations.md) for a detailed list of current limitations, written in simpler English with explanations and examples.
