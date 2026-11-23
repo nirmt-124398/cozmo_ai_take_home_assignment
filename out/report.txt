@@ -1,0 +1,20 @@
+CONTENTS CLAIM REPORT
+---------------------
+Currency: INR
+
+1. Television (43" ) x2                   £900.00  [fixture price]
+   Note: merged raw input "television" (qty 1)
+   Note: corrected size_inch from 55.0 to 43.0
+2. Laptop x1                              £600.00  [fixture price]
+3. Charger x1                                      NEEDS CLARIFICATION ('charger' is ambiguous (which device?))
+4. Cable x1                                        NEEDS CLARIFICATION ('cable' is ambiguous (which cable?))
+5. Antique Clock x1                                PRICE BLANK (not in fixture)
+6. Guitar x1                                       PRICE BLANK (not in fixture)
+7. Kettle x1                               £40.00  [fixture price]
+8. Smartphone x1                          £350.00  [fixture price]
+9. Sofa x1                                £800.00  [fixture price]
+
+Total (priced items only): 2690.0
+Excluded from total: 4 items (2 ambiguous, 2 unpriced)
+
+Prices come from a test fixture, not real market data (test fixture, not real market data).
